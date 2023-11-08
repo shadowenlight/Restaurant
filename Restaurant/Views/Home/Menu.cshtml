@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Restaurant.Models.Category>
+@{
+    ViewBag.Title = "Menu";
+}
+
+<h2>Menu</h2>
+<div id="Button">
+    @using (Html.BeginForm("Create", "Home", FormMethod.Get))
+    {
+        <input type="submit" value="Create" />
+    }
+</div>
+
+<div id="searchresults"></div>
+
+<table class="table table-bordered col-md-10" style="background-color: rgb(208, 164, 4, 0.7); border-radius: 20px 20px 20px 20px; border-collapse: separate; ">
+
+    @foreach (var ct in Model)
+    {
+
+        <tr style="background-color:rgb(220, 147, 0, 0.7)">
+            <td colspan="4"><h3>@Html.DisplayFor(modelct => ct.Name)</h3></td>
+        </tr>
+
+        <tr>
+            <th><h4>Name</h4></th>
+            <th><h4>Price</h4></th>
+            <th colspan="2">Options</th>
+        </tr>
+        for (var i = 0; i < ct.Foods.Count; i++)
+        {
+            int i1 = i;
+            <tr>
+                <td>@Html.DisplayFor(modelct => ct.Foods[i1].Name)</td>
+                <td>@Html.DisplayFor(modelct => ct.Foods[i1].Price)</td>
+
+                @if (ct.Foods[i1].FoodArtUrl != null)
+                {
+                    <td id="Button"> <h4><a href='@Url.Action("Preview", new { id=ct.Foods[i1].FoodId })' class="ajax">Preview</a></h4></td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                <td id="Button"><h4>@Html.ActionLink("Order", "Create", "Orders", new { id = ct.Foods[i1].FoodId }, null)</h4></td>
+            </tr>
+        }
+    }
+</table>
+
+<div id="TargetDiv"></div>
+
+<div class="panel panel-default" style="background:none;">
+    <div class="panel-body">
+        @using (Ajax.BeginForm("FoodSearch", "Home",
+        new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET",
+            OnFailure = "searchFailed",
+            LoadingElementId = "ajax-loader",
+            UpdateTargetId = "searchresults",
+        }))
+        {
+            <input type="text" name="f" />
+            <input type="submit" value="search" />
+            <img id="ajax-loader"
+                 src="@Url.Content("~/Images/ajax-loader.gif")"
+                 style="display:none" />
+        }
+    </div>
+</div>

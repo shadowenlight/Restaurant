@@ -1,0 +1,12 @@
+﻿@model Restaurant.Models.Food
+
+@{
+    ViewBag.Title = "Preview";
+    Layout = "";
+}
+
+<h2>Preview</h2>
+
+<img style=" border: 10px groove; border-color: darkgoldenrod; z-index: 3; position:relative;
+       bottom:1200px; place-items:center; place-content:center; left:350px;" 
+     src="@Model.FoodArtUrl" />

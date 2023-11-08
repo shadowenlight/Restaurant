@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Restaurant.Models.Reservation>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Reservation List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Table.TableId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfPerson)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th>
+            Reservation Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Table.TableId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfPerson)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem=>item.userr.usrnm)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReservationId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReservationId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReservationId })
+        </td>
+    </tr>
+}
+
+</table>

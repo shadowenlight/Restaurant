@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+</head>
+<body style="padding-top:60px;">
+    <div class="navbar navbar-inverse navbar-fixed-top" id="NavTop">
+        <div class="container">
+            <div class="navbar-header" id="NavigationRes">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Restaurant", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse" id="NavigationTop">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div id="Navigation" class="container form-group col-sm-3 collapse.show">
+        <div class="card card-body">
+            <ul>
+                <li>@Html.ActionLink("Menu", "Menu", "Home")</li>
+                <li>@Html.ActionLink("Reservation", "Index", "Reservations")</li>
+                <li>@Html.ActionLink("My Orders", "Index", "Orders")</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Restaurant</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<script>
+    //$(document).ready(function () {
+    //    $(".ajax").on("click", function (e) {
+    //        e.preventDefault();
+    //        var elementUrl = $(this).attr('href');
+    //        $.ajax({
+    //            url: elementUrl,
+    //            cache: false,
+    //            success: function (data) {
+    //                $('#TargetDiv').html(data);
+    //            }
+    //        });
+    //    });
+    //});
+
+    $("#NavigationTop ul li").mouseover(function () {
+        animateElement($(this));
+    });
+    function animateElement(element) {
+        element.animate({ width: '-=5' })
+            .animate({ width: '+=5' });
+    }
+</script>

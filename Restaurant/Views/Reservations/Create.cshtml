@@ -1,0 +1,123 @@
+﻿@model Restaurant.Models.Reservation
+
+@{
+    ViewBag.Title = "Create";
+}
+<h2>Create</h2>
+
+
+<script type="text/javascript">
+    function FilTableId(t) {
+        $('#TableId').val(t);
+    }
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Reservation</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DateTime, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DateTime, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Time, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.NumberOfPerson, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NumberOfPerson, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NumberOfPerson, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group" style="display:none;">
+        @Html.LabelFor(model => model.TableId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TableId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TableId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group" style="display:none;">
+        @Html.LabelFor(model => model.userr.usr, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.userr.usr, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.userr.usr, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group" style="display:none;">
+        @Html.LabelFor(model => model.userr.usrnm, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.userr.usrnm, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.userr.usrnm, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+    <div id="SeatingPlan" style="background-image: url('../../Images/restaurant-seating-chart.png')">
+        <form id="butt"></form>
+        <button style="position:relative; left:269px; top:258px;" onclick="FilTableId(1)" value="1">1</button>
+        <hr />
+        }
+        <button style="position:relative; left:380px; top:190px;" onclick="FilTableId(2)" value="2">2</button>
+        <hr />
+        <button style="position:relative; left:490px; top:120px;" onclick="FilTableId(3)" value="3">3</button>
+        <hr />
+        <button style="position:relative; left:600px; top:55px;" onclick="FilTableId(4)" value="4">4</button>
+        <hr />
+        <button style="position:relative; bottom:15px; left:710px;" onclick="FilTableId(5)" value="5">5</button>
+        <button style="position:relative; bottom:15px; left:794px;" onclick="FilTableId(6)" value="6">6</button>
+        <hr />
+        <button style="position:relative; left:269px;" onclick="FilTableId(7)" value="7">7</button>
+        <button style="position:relative; left:350px;" onclick="FilTableId(8)" value="8">8</button>
+        <button style="position:relative; left:433px;" onclick="FilTableId(9)" value="9">9</button>
+        <button style="position:relative; left:520px;" onclick="FilTableId(10)" value="10">10</button>
+        <button style="position:relative; left:592px;" onclick="FilTableId(11)" value="11">11</button>
+        <button style="position:relative; left:670px;" onclick="FilTableId(12)" value="12">12</button>
+        <hr />
+        <button style="position:relative; top:35px; left:40px;" name="Button" onclick="FilTableId(13)" value="13">13</button>
+        <button style="position:relative; left:234px; bottom:20px;" onclick="FilTableId(14)" value="14">14</button>
+        <button style="position:relative; left:304px; bottom:20px;" onclick="FilTableId(15)" value="15">15</button>
+        <button style="position:relative; left:378px; bottom:20px;" onclick="FilTableId(16)" value="16">16</button>
+        <button style="position:relative; left:454px; bottom:20px;" onclick="FilTableId(17)" value="17">17</button>
+        <button style="position:relative; left:530px; bottom:20px;" onclick="FilTableId(18)" value="18">18</button>
+        <button style="position:relative; left:604px; bottom:20px;" onclick="FilTableId(19)" value="19">19</button>
+        <button style="position:relative; left:74px; top:54px;" onclick="FilTableId(20)" value="20">20</button>
+        <button style="position:relative; left:150px; top:54px;" onclick="FilTableId(21)" value="21">21</button>
+        <hr />
+        <button style="position:relative; left:544px; bottom:16px;" onclick="FilTableId(22)" value="22">22</button>
+        <button style="position:relative; left:674px;" onclick="FilTableId(23)" value="23">23</button>
+        <button style="position:relative; bottom:155px; left:860px;" onclick="FilTableId(24)" value="24">24</button>
+        <button style="position:relative; left:48px; bottom:20px;" onclick="FilTableId(25)" value="25">25</button>
+        <hr />
+        <button style="position:relative; bottom:115px; left:930px;" onclick="FilTableId(26)" value="26">26</button>
+        <button style="position:relative; left:790px; bottom:67px;" onclick="FilTableId(27)" value="27">27</button>
+        <button style="position:relative; top:15px; right:30px;" onclick="FilTableId(28)" value="28">28</button>
+        <p></p>
+        <button style="position:relative; bottom:20px; left:154px;" onclick="FilTableId(29)" value="29">29</button>
+        <button style="position:relative; bottom:45px; left:900px;" onclick="FilTableId(30)" value="30">30</button>
+    </div>
+
+<div>
+@Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

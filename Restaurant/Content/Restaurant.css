@@ -1,0 +1,94 @@
+﻿body {
+    background-image: url('../Images/39891667.jpg');
+    background-repeat:repeat-y;
+    background-position:center;
+    background-size:cover;
+    color:lightgray;
+}
+
+footer{
+    text-align:center;  
+}
+
+#Navigation  { 
+    border-style: groove;
+    border-color: goldenrod;
+    border-inline-color: darkgoldenrod;
+    float: left;
+    position: relative;
+    top: 100px;
+    text-decoration: none;
+    border-radius: 0px 10px 10px 0px;
+}
+#Navigation ul{
+    list-style-type:none;
+    padding: 8px 8px 0px 0px;
+}
+#Navigation ul li{
+    border-style:groove;
+    background-color:goldenrod;
+    text-align:center;
+    padding:4px 4px 4px 4px;
+    border-color:gold;
+    margin-bottom:5px;
+}
+#Navigation ul li a{
+    color:lightgray;
+    padding:5px 135px 5px 115px;
+}
+#Navigation ul li:hover{
+    color:lightgray;
+    background-color:black;
+}
+#Navigation ul li a:hover{
+    text-decoration:none;
+}
+
+#NavTop {
+    background-color:darkgoldenrod;
+    background-image: url('../Images/39891667.jpg');
+    background-blend-mode:color-dodge;
+    border-bottom-style: double;
+    border-block-end-width:thick;
+}
+#NavTop ul li a{
+    color:lightgray;
+}
+#NavTop ul li{    
+    background-color:goldenrod;
+    border-style:solid;
+    border-color:darkgoldenrod;
+    border-radius:10px 10px 10px 10px;
+    margin-left:15px;
+}
+#NavigationTop ul li:hover{
+    background-color:black;
+}
+
+#NavigationRes a{
+    font-style:italic;
+    color:black;
+    font-family:'Bell MT';
+    font-size:large;
+}
+
+#Logo{
+    float:left;
+    position:relative;
+    top:-50px;
+    left:-380px;
+    border-style:groove;
+}
+
+#Button a{
+    border-style:groove ridge;
+    border-radius:5px 5px 5px 5px;
+    background-color:goldenrod;
+    text-align:center;
+    border-color:gold;
+    text-decoration:none;
+    color:lightgray;
+}
+#Button a:hover{
+    background-color:black;
+}

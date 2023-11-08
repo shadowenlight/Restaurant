@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Restaurant.Models.Order>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h2>Orders</h2>
+
+<table class="table table-bordered col-md-10" style="background-color: rgb(220, 177, 0, 0.7); border-radius: 20px 20px 20px 20px; border-collapse: separate ">
+    <tr>
+        <th><h3>@Html.DisplayNameFor(model => model.Food.Name)</h3></th>
+        <th><h3>Category</h3></th>
+        <th><h3>@Html.DisplayNameFor(model => model.Food.Price)</h3></th>
+        <th><h3>Options</h3></th>
+    </tr>
+    @{decimal va = 0;
+        decimal i = 0;}
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td><h4>@Html.DisplayFor(modelitem => item.Food.Name)</h4></td>
+            <td><h4>@Html.DisplayFor(modelitem => item.Food.Category.Name)</h4></td>
+            <td><h4>@Html.DisplayFor(modelitem => item.Food.Price)</h4></td>
+            @{
+                va += item.Food.Price;
+                item.Total = va;
+            }
+            <td id="Button">
+                <h4>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.OrderId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.OrderId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.OrderId })
+                </h4>
+            </td>
+        </tr>
+        i = item.Total;
+     }
+
+    <tr><td><h3>Total:</h3></td><td></td><td><h3> @i</h3></td></tr>
+</table>
+<div id="Button">
+    @Html.ActionLink("Back To Menu", "Menu", "Home")
+</div>
